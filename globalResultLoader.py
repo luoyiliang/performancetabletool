@@ -5,6 +5,7 @@
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 import logging
+import sys
 
 class GlobalResultLoader(ContentHandler):
     def __init__(self):
@@ -113,10 +114,34 @@ class GlobalResultLoader(ContentHandler):
         return self.data_content
 
 
-def main():
+def main(xml_file_path):
     handler = GlobalResultLoader()
     parser = make_parser()
     parser.setContentHandler(handler)
-    
+
+    try:
+        parser.parse(xml_file_path)
+        handler.print_summary()
+        
+        # 如果需要进一步处理数据
+        data = handler.get_data()
+        # 进行其他操作...
+        
+        return data  # 返回解析后的数据
+
+    except Exception as e:
+        print(f"解析过程中发生错误: {str(e)}")
+        return None
+
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        print("使用方法: python globalResultLoader.py <xml文件路径>")
+        sys.exit(1)
+    
+    xml_file_path = sys.argv[1]
+    result = main(xml_file_path)
+    
+    if result:
+        print("XML 文件解析成功")
+    else:
+        print("XML 文件解析失败")
