@@ -147,7 +147,7 @@ class GlobalResultLoader(ContentHandler):
             
             elif current_path.startswith('Margin_Test_Report.MultiPreprocessingData'):
                 # 依照定义好的MultiPreprocessingItem类进行处理
-                self.multi_preprocessing_data.append(MultiPreprocessingItem(**attrs))
+                #self.multi_preprocessing_data.append(MultiPreprocessingItem(**attrs))
                 pass
             '''
             elif current_path.startswith('Margin_Test_Report.Channels'):
@@ -230,7 +230,7 @@ def main(xml_file_path):
         handler.print_summary()
 
         data = handler.get_data()
-        print(data["GeneralInformation"].Date)
+        print(data["GeneralInformation"].MacVersion)
         return data  # 返回解析后的数据
 
     except Exception as e:
