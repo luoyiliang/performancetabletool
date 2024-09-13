@@ -7,7 +7,7 @@ from typing import List, Dict
 # 使用python.sax解析xml文件
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
-
+from tabulate import tabulate
 
 @dataclass
 class GeneralInformation:
@@ -66,6 +66,8 @@ class Channel:
 
 @dataclass
 class MultiPreprocessingItem:
+    information: Dict[str, str] = field(default_factory=dict)
+    file_information: Dict[str, str] = field(default_factory=dict)
     @dataclass
     class Mechanical:
         @dataclass
@@ -75,20 +77,55 @@ class MultiPreprocessingItem:
             unit: str
             value: float
         parameters: List[MechanicalParameter] = field(default_factory=list)
-
-    information: Dict[str, str] = field(default_factory=dict)
-    file_information: Dict[str, str] = field(default_factory=dict)
     mechanical: Mechanical = field(default_factory=Mechanical)
-        
 
     @dataclass
     class Preprocessing:
+        # 这部分暂时用不到
         @dataclass
         class Sensor:
             name: str
             description: str
             unit: str
             value: str
+    @dataclass
+    class Drifts:
+        pass
+
+    @dataclass
+    class PerformanceStudy:
+        # 这个类用于解构performance study,这个节点是MultiPreprocessingData下的一个子节点
+        '''
+        这个节点参考xml段如下
+        <PerformanceStudy>
+        <TimeEvent name="DR1">
+            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
+            <File name="EH3_FLV_15K_ORB_20230814_LSB_2K_HCR8" min="55.5" nom="55.5" max="55.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
+            <File name="EH3_FCC_25KFFB_20230418_LSB_2K_HCR8" min="35" nom="35" max="35" NF_presence="0" opt_min="-1" opt_nom="25" opt_max="-1"/>
+        </TimeEvent>
+        <TimeEvent name="PA1">
+            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
+            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
+            <File name="EH3_FLV_15K_ORB_20230814_LSB_2K_HCR8" min="55.5" nom="55.5" max="55.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
+        </TimeEvent>
+        </PerformanceStudy>
+        '''
+        @dataclass
+        class TimeEvent:
+            name:str
+            # 定义File类，用于存储PerformanceStudy节点下的File节点信息
+            @dataclass
+            class File:
+                name: str
+                min: float
+                nom: float
+                max: float
+                NF_presence: float
+                opt_min: float
+                opt_nom: float
+                opt_max: float
+            files: List[File] = field(default_factory=list)
+            
 
 
 class GlobalResultLoader(ContentHandler):
@@ -217,7 +254,8 @@ class GlobalResultLoader(ContentHandler):
         }
 
     def print_summary(self):
-        pass
+        print_general_information(self.general_information)
+        print_time_event_information(self.time_events)
 
 
 def main(xml_file_path):
@@ -227,15 +265,34 @@ def main(xml_file_path):
 
     try:
         parser.parse(xml_file_path)
-        handler.print_summary()
-
-        data = handler.get_data()
-        print(data["GeneralInformation"].MacVersion)
-        return data  # 返回解析后的数据
+        return handler.get_data()  # 直接返回解析后的数据
 
     except Exception as e:
         print(f"解析过程中发生错误: {str(e)}")
         return None
+
+def print_general_information(general_info):
+    data = [
+        ["Date", general_info.Date],
+        ["MAC Version", general_info.MacVersion],
+        ["Program", general_info.Project],
+        ["Customer", general_info.Customer],
+        ["AlgoVersion", general_info.Algorithm_version],
+        ["Calibration File", general_info.Calibration.split("\\")[-1]],
+    ]
+    
+    print("\n一般信息:")
+    print(tabulate(data, headers=["Key", "Value"], tablefmt="grid"))
+
+
+def print_time_event_information(time_events):
+    data = [
+        [event.name, event.description, event.compute_displacement, event.algorithm, event.category]
+        for event in time_events
+    ]
+    
+    print("\nTime Event Information:")
+    print(tabulate(data, headers=["Name", "Description", "Compute Displacement", "Algorithm", "Category"], tablefmt="grid"))
 
 
 if __name__ == "__main__":
