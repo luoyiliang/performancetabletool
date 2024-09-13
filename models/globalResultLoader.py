@@ -11,6 +11,26 @@ from xml.sax.handler import ContentHandler
 
 @dataclass
 class GeneralInformation:
+    def __init__(self, title, Date, MacVersion, Project, Customer, UnitType, ECUVersion, 
+                 Algorithm_version, DisplacementUnit, Calibration, Batch_Mode_File_Name, 
+                 StudyType, DataValidityMsg, XMLFileVersion, ProjectPath, ECUPath):
+        self.title = title
+        self.Date = Date
+        self.MacVersion = MacVersion
+        self.Project = Project
+        self.Customer = Customer
+        self.UnitType = UnitType
+        self.ECUVersion = ECUVersion
+        self.Algorithm_version = Algorithm_version
+        self.DisplacementUnit = DisplacementUnit
+        self.Calibration = Calibration
+        self.Batch_Mode_File_Name = Batch_Mode_File_Name
+        self.StudyType = StudyType
+        self.DataValidityMsg = DataValidityMsg
+        self.XMLFileVersion = XMLFileVersion
+        self.ProjectPath = ProjectPath
+        self.ECUPath = ECUPath
+
     title: str
     Date: str
     MacVersion: str
@@ -78,7 +98,24 @@ class GlobalResultLoader(ContentHandler):
         self.current_data = ""
         self.path: List[str] = []
 
-        self.general_information: GeneralInformation = GeneralInformation()
+        self.general_information: GeneralInformation = GeneralInformation(
+            title="",
+            Date="",
+            MacVersion="",
+            Project="",
+            Customer="",
+            UnitType="",
+            ECUVersion="",
+            Algorithm_version="",
+            DisplacementUnit="",
+            Calibration="",
+            Batch_Mode_File_Name="",
+            StudyType="",
+            DataValidityMsg="",
+            XMLFileVersion="",
+            ProjectPath="",
+            ECUPath=""
+        )
         self.time_events: List[TimeEvent] = []
         self.calibration: List[Dict] = []
         self.calibration_configuration: List[Dict] = []
@@ -107,27 +144,12 @@ class GlobalResultLoader(ContentHandler):
             elif current_path.startswith('Margin_Test_Report.CalibrationConfigurationInformation'):
                 self.data_content['CalibrationConfigurationInformation'].append({})
                 self.data_content['CalibrationConfigurationInformation'][-1][tag] = dict(attrs)
-            '''
-            elif current_path.startswith('Margin_Test_Report.CalibrationDisplayInformation'):
-                if len(self.path) == 2:
-                    self.data_content['Margin_Test_Report.CalibrationDisplayInformation'].append({})
-                self.data_content['Margin_Test_Report.CalibrationDisplayInformation'][-1][tag] = dict(attrs)
-            
-            elif current_path.startswith('Margin_Test_Report.CalibrationSpecificationInformation'):
-                if len(self.path) == 2:
-                    self.data_content['Margin_Test_Report.CalibrationSpecificationInformation'].append({})
-                self.data_content['Margin_Test_Report.CalibrationSpecificationInformation'][-1][tag] = dict(attrs)
             
             elif current_path.startswith('Margin_Test_Report.MultiPreprocessingData'):
-                if len(self.path) == 2:
-                    self.data_content['Margin_Test_Report.MultiPreprocessingData'].append({})
-                current_item = self.data_content['Margin_Test_Report.MultiPreprocessingData'][-1]
-                for sub_path in self.path[2:]:
-                    if sub_path not in current_item:
-                        current_item[sub_path] = {}
-                    current_item = current_item[sub_path]
-                current_item.update(dict(attrs))
-            
+                # 依照定义好的MultiPreprocessingItem类进行处理
+                self.multi_preprocessing_data.append(MultiPreprocessingItem(**attrs))
+                pass
+            '''
             elif current_path.startswith('Margin_Test_Report.Channels'):
                 if current_path == 'Margin_Test_Report.Channels.ProjectChannels.Channel':
                     self.data_content['Margin_Test_Report.Channels']['ProjectChannels'].append(dict(attrs))
@@ -217,5 +239,5 @@ def main(xml_file_path):
 
 
 if __name__ == "__main__":
-    xml_file_path = r"testUsing.xml"
+    xml_file_path = r"./tests/testUsing.xml"
     result = main(xml_file_path)
