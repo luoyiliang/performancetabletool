@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>icons8-flag-100.png</file>
+    <file>C:/Users/A/Downloads/icons8-document-100.png</file>
+    <file>icons8-information-100.png</file>
+    <file>logo.png</file>
+  </qresource>
+</RCC>
