@@ -6,18 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
-    <width>800</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Global Result Parser</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../src/icons/GlobalResultToolIcon.png</normaloff>../src/icons/GlobalResultToolIcon.png</iconset>
+  </property>
+  <property name="toolTip">
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;当MultipreprocessingItem为1时才可选择Cal-Val&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
   </property>
   <widget class="QWidget" name="widget">
    <layout class="QGridLayout" name="gridLayout">
@@ -37,6 +44,49 @@
      <number>1</number>
     </property>
     <item row="0" column="2">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="pushButton_LoadXML">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>20</y>
+         <width>131</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Load Global Result</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Performance Table</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cal-Val Expected Result</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="3">
      <widget class="QFrame" name="frame_2">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -44,259 +94,25 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QStackedWidget" name="stackedWidget">
-       <property name="geometry">
-        <rect>
-         <x>1</x>
-         <y>1</y>
-         <width>0</width>
-         <height>0</height>
-        </rect>
-       </property>
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="page_generalInfo"/>
-       <widget class="QWidget" name="page_fileInfo"/>
-       <widget class="QWidget" name="page_timeEventSettings"/>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>100</y>
-         <width>60</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Project</string>
-       </property>
-      </widget>
-      <widget class="QWidget" name="">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>40</y>
-         <width>361</width>
-         <height>50</height>
-        </rect>
-       </property>
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>MacVersion:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Date</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>MacVersion</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>120</y>
-         <width>60</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Customer</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>140</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>ProjectPath</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>100</y>
-         <width>287</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>120</y>
-         <width>287</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>140</y>
-         <width>287</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QFrame" name="frame">
-      <property name="maximumSize">
-       <size>
-        <width>300</width>
-        <height>16777215</height>
-       </size>
+    <item row="1" column="2" colspan="2">
+     <widget class="QFrame" name="frame_3">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <widget class="QSplitter" name="splitter">
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTextEdit" name="textEdit_logViewer">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>258</width>
-         <height>253</height>
+         <width>1171</width>
+         <height>371</height>
         </rect>
        </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <widget class="QLabel" name="label">
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-    font-family: 'Futura', 'Arial', sans-serif; /* 使用现代的字体 */
-    font-size: 18px;                            /* 大字体，突出公司名称 */
-    font-weight: bold;                          /* 加粗字体 */
-    color: #e74c3c;                             /* 使用艺术感的红色 */
-    border-radius: 20px;                        /* 圆角背景，柔和效果 */
-    padding: 20px;                              /* 增加内边距，使文字不贴边 */
-    text-align: center;                         /* 居中对齐文本 */
-    letter-spacing: 5px;                        /* 增加字母间距，提升艺术感 */
-}</string>
-        </property>
-        <property name="text">
-         <string>Performance Table Tool</string>
-        </property>
-       </widget>
-       <widget class="QListWidget" name="listWidget">
-        <property name="styleSheet">
-         <string notr="true">/* 基础样式，设置整个 QListWidget 的背景颜色和边框 */
-QListWidget {
-    background-color: #f5f5f5;  /* 设置浅灰色背景 */
-    border: none;               /* 移除边框 */
-    padding: 10px;              /* 给内容添加内边距 */
-}
-
-/* 每个 QListWidgetItem 的样式 */
-QListWidget::item {
-    background-color: transparent;  /* 默认背景透明 */
-    color: #333;                    /* 默认文字颜色为深灰色 */
-    height: 40px;                   /* 设置每一项的高度 */
-    padding-left: 20px;             /* 设置左侧的内边距，方便放置图标 */
-    border-radius: 5px;             /* 设置圆角 */
-}
-
-/* 悬停效果 */
-QListWidget::item:hover {
-    background-color: #e0e0e0;      /* 当鼠标悬停时，背景变为浅灰色 */
-    color: #000;                    /* 悬停时文字颜色为黑色 */
-}
-
-/* 选中项的样式 */
-QListWidget::item:selected {
-    background-color: #e74c3c;      /* 选中项的背景颜色为红色 */
-    color: white;                   /* 选中项的文字颜色为白色 */
-    border: none;                   /* 移除选中项的边框 */
-    padding-left: 20px;             /* 保持左侧内边距 */
-    height: 40px;                   /* 保持项高度 */
-}
-
-/* 设置图标文本的间距 */
-QListWidget::item::icon {
-    margin-right: 10px;             /* 图标和文字之间的间距 */
-}</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>General Information</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../src/icons/resorcefile.qrc">
-           <normaloff>:/logo/icons8-information-100.png</normaloff>:/logo/icons8-information-100.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>File Information fieds settings</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../src/icons/resorcefile.qrc">
-           <normaloff>:/logo/C:/Users/A/Downloads/icons8-document-100.png</normaloff>:/logo/C:/Users/A/Downloads/icons8-document-100.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Time Events settings</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../src/icons/resorcefile.qrc">
-           <normaloff>:/logo/icons8-flag-100.png</normaloff>:/logo/icons8-flag-100.png</iconset>
-         </property>
-        </item>
-       </widget>
       </widget>
      </widget>
     </item>
@@ -307,7 +123,7 @@ QListWidget::item::icon {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1200</width>
      <height>23</height>
     </rect>
    </property>

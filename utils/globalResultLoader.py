@@ -8,6 +8,8 @@ from typing import List, Dict
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from tabulate import tabulate
+from io import StringIO
+import sys
 
 @dataclass
 class GeneralInformation:
@@ -254,18 +256,24 @@ class GlobalResultLoader(ContentHandler):
         }
 
     def print_summary(self):
+        old_stdout = sys.stdout
+        result = StringIO()
+        sys.stdout = result
+        
         print_general_information(self.general_information)
         print_time_event_information(self.time_events)
+        
+        sys.stdout = old_stdout
+        return result.getvalue()
 
-
-def main(xml_file_path):
+def load_global_result(xml_file_path):
     handler = GlobalResultLoader()
     parser = make_parser()
     parser.setContentHandler(handler)
 
     try:
         parser.parse(xml_file_path)
-        return handler.get_data()  # 直接返回解析后的数据
+        return handler
 
     except Exception as e:
         print(f"解析过程中发生错误: {str(e)}")
@@ -297,4 +305,4 @@ def print_time_event_information(time_events):
 
 if __name__ == "__main__":
     xml_file_path = r"./tests/testUsing.xml"
-    result = main(xml_file_path)
+    result = load_global_result(xml_file_path)
