@@ -8,6 +8,7 @@ from typing import List, Dict
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from tabulate import tabulate
+import pandas as pd
 from io import StringIO
 import sys
 
@@ -156,6 +157,7 @@ class GlobalResultLoader(ContentHandler):
             ECUPath=""
         )
         self.time_events: List[TimeEvent] = []
+        self.time_events_df: pd.DataFrame = pd.DataFrame()
         self.calibration: List[Dict] = []
         self.calibration_configuration: List[Dict] = []
         self.calibration_display: List[Dict] = []
@@ -176,6 +178,8 @@ class GlobalResultLoader(ContentHandler):
 
             elif current_path.startswith('Margin_Test_Report.TimeEventInformation.TimeEvent'):
                 self.time_events.append(TimeEvent(**attrs))
+                self.time_events_df = pd.DataFrame(self.time_events)
+                self.time_events_df.set_index('name', inplace=True)
 
             elif current_path.startswith('Margin_Test_Report.Calibration'):
                 self.calibration.append(dict(attrs))
@@ -244,6 +248,7 @@ class GlobalResultLoader(ContentHandler):
         return {
             "GeneralInformation": self.general_information,
             "TimeEventInformation": self.time_events,
+            "TimeEventInformation_df": self.time_events_df,
             "Calibration": self.calibration,
             "CalibrationConfigurationInformation": self.calibration_configuration,
             "CalibrationDisplayInformation": self.calibration_display,
@@ -304,5 +309,6 @@ def print_time_event_information(time_events):
 
 
 if __name__ == "__main__":
-    xml_file_path = r"./tests/testUsing.xml"
+    xml_file_path = r"./tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml"
     result = load_global_result(xml_file_path)
+    print(result.get_data()["TimeEventInformation_df"])
