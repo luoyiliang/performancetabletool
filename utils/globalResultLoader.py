@@ -3,7 +3,7 @@
 
 import logging
 from dataclasses import dataclass, field
-from typing import List, Dict
+from typing import List, Dict, Optional
 # 使用python.sax解析xml文件
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
@@ -70,65 +70,92 @@ class Channel:
 @dataclass
 class MultiPreprocessingItem:
     information: Dict[str, str] = field(default_factory=dict)
-    file_information: Dict[str, str] = field(default_factory=dict)
+    file_information: List[Dict[str, str]] = field(default_factory=list)
+    file_information_df: pd.DataFrame = field(default_factory=pd.DataFrame)
+    
     @dataclass
     class Mechanical:
         @dataclass
-        class MechanicalParameter:
+        class Parameter:
             name: str
             description: str
             unit: str
             value: float
-        parameters: List[MechanicalParameter] = field(default_factory=list)
+        parameters: List[Parameter] = field(default_factory=list)
     mechanical: Mechanical = field(default_factory=Mechanical)
-
+    
     @dataclass
     class Preprocessing:
-        # 这部分暂时用不到
         @dataclass
         class Sensor:
             name: str
-            description: str
-            unit: str
-            value: str
+            parameters: List[Dict[str, str]] = field(default_factory=list)
+        sensors: List[Sensor] = field(default_factory=list)
+        
+        @dataclass
+        class Acquisition:
+            parameters: List[Dict[str, str]] = field(default_factory=list)
+        acquisition: Acquisition = field(default_factory=Acquisition)
+    preprocessing: Preprocessing = field(default_factory=Preprocessing)
+    
     @dataclass
     class Drifts:
-        pass
-
-    @dataclass
-    class PerformanceStudy:
-        # 这个类用于解构performance study,这个节点是MultiPreprocessingData下的一个子节点
-        '''
-        这个节点参考xml段如下
-        <PerformanceStudy>
-        <TimeEvent name="DR1">
-            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
-            <File name="EH3_FLV_15K_ORB_20230814_LSB_2K_HCR8" min="55.5" nom="55.5" max="55.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
-            <File name="EH3_FCC_25KFFB_20230418_LSB_2K_HCR8" min="35" nom="35" max="35" NF_presence="0" opt_min="-1" opt_nom="25" opt_max="-1"/>
-        </TimeEvent>
-        <TimeEvent name="PA1">
-            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
-            <File name="EH3_FLC_15KORB_20230417_LSB_2K_HCR8" min="40.5" nom="40.5" max="40.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
-            <File name="EH3_FLV_15K_ORB_20230814_LSB_2K_HCR8" min="55.5" nom="55.5" max="55.5" NF_presence="0" opt_min="-1" opt_nom="-1" opt_max="-1"/>
-        </TimeEvent>
-        </PerformanceStudy>
-        '''
         @dataclass
-        class TimeEvent:
-            name:str
-            # 定义File类，用于存储PerformanceStudy节点下的File节点信息
+        class Electronic:
             @dataclass
-            class File:
+            class Drift:
                 name: str
+                description: str
+                unit: str
                 min: float
                 nom: float
                 max: float
-                NF_presence: float
-                opt_min: float
-                opt_nom: float
-                opt_max: float
+                step: float
+                points: int
+            drifts: List[Drift] = field(default_factory=list)
+        mechanical: Dict = field(default_factory=dict)
+        electronic: Electronic = field(default_factory=Electronic)
+        acquisition: Dict = field(default_factory=dict)
+        algorithm: Dict = field(default_factory=dict)
+    drifts: Drifts = field(default_factory=Drifts)
+    
+    @dataclass
+    class PerformanceStudy:
+        @dataclass
+        class TimeEvent:
+            name: str
+            files: List[Dict[str, str]] = field(default_factory=list)
+            df: pd.DataFrame = field(default_factory=pd.DataFrame)
+        time_events: List[TimeEvent] = field(default_factory=list)
+        time_events_dict: Dict[str, pd.DataFrame] = field(default_factory=dict)
+    performance_study: PerformanceStudy = field(default_factory=PerformanceStudy)
+    
+    @dataclass
+    class TimeEventDistribution:
+        @dataclass
+        class TimeEvent:
+            name: str
+            @dataclass
+            class File:
+                name: str
+                occurrences: List[Dict[str, float]] = field(default_factory=list)
             files: List[File] = field(default_factory=list)
-            
+        time_events: List[TimeEvent] = field(default_factory=list)
+    time_event_distribution: TimeEventDistribution = field(default_factory=TimeEventDistribution)
+    
+    @dataclass
+    class FullMarginStudy:
+        @dataclass
+        class TimeEvent:
+            name: str
+            @dataclass
+            class File:
+                name: str
+                nominal: Dict[str, Dict[str, str]] = field(default_factory=dict)
+                drift_1: Dict[str, Dict[str, str]] = field(default_factory=dict)
+            files: List[File] = field(default_factory=list)
+        time_events: List[TimeEvent] = field(default_factory=list)
+    full_margin_study: FullMarginStudy = field(default_factory=FullMarginStudy)
 
 
 class GlobalResultLoader(ContentHandler):
@@ -162,9 +189,14 @@ class GlobalResultLoader(ContentHandler):
         self.calibration_configuration: List[Dict] = []
         self.calibration_display: List[Dict] = []
         self.calibration_specification: List[Dict] = []
-        self.multi_preprocessing_data: List[Dict] = []
+        self.multi_preprocessing_items: List[MultiPreprocessingItem] = []
         self.project_channels: List[Channel] = []
         self.multireprocessing_tab: List[MultiPreprocessingItem] = []
+        self.current_multi_preprocessing_item: Optional[MultiPreprocessingItem] = None
+        self.current_time_event: Optional[MultiPreprocessingItem.PerformanceStudy.TimeEvent] = None
+        self.current_distribution_time_event: Optional[MultiPreprocessingItem.TimeEventDistribution.TimeEvent] = None
+        self.current_full_margin_time_event: Optional[MultiPreprocessingItem.FullMarginStudy.TimeEvent] = None
+        self.current_performance_study_time_event: Optional[MultiPreprocessingItem.PerformanceStudy.TimeEvent] = None
 
     # 开始解析xml文件
     def startElement(self, tag, attrs):
@@ -188,17 +220,52 @@ class GlobalResultLoader(ContentHandler):
                 self.data_content['CalibrationConfigurationInformation'].append({})
                 self.data_content['CalibrationConfigurationInformation'][-1][tag] = dict(attrs)
             
-            elif current_path.startswith('Margin_Test_Report.MultiPreprocessingData'):
-                # 依照定义好的MultiPreprocessingItem类进行处理
-                #self.multi_preprocessing_data.append(MultiPreprocessingItem(**attrs))
-                pass
-            '''
-            elif current_path.startswith('Margin_Test_Report.Channels'):
-                if current_path == 'Margin_Test_Report.Channels.ProjectChannels.Channel':
-                    self.data_content['Margin_Test_Report.Channels']['ProjectChannels'].append(dict(attrs))
-                elif current_path == 'Margin_Test_Report.Channels.MultireprocessingTab.Channel':
-                    self.data_content['Margin_Test_Report.Channels']['MultireprocessingTab'].append(dict(attrs))
-            '''
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem':
+                self.current_multi_preprocessing_item = MultiPreprocessingItem()
+                self.multi_preprocessing_items.append(self.current_multi_preprocessing_item)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.MultiPreprocessingItemInformation':
+                self.current_multi_preprocessing_item.information = dict(attrs)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.FileInformation.File':
+                file_info = dict(attrs)
+                self.current_multi_preprocessing_item.file_information.append(file_info)
+                # 每次添加新的文件信息时，更新 DataFrame
+                self.current_multi_preprocessing_item.file_information_df = pd.DataFrame(self.current_multi_preprocessing_item.file_information)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.Mechanical.Parameter':
+                param = MultiPreprocessingItem.Mechanical.Parameter(**attrs)
+                self.current_multi_preprocessing_item.mechanical.parameters.append(param)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.Preprocessing.Sensor':
+                sensor = MultiPreprocessingItem.Preprocessing.Sensor(name=attrs['name'])
+                self.current_multi_preprocessing_item.preprocessing.sensors.append(sensor)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.Preprocessing.Sensor.Parameter':
+                self.current_multi_preprocessing_item.preprocessing.sensors[-1].parameters.append(dict(attrs))
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.Preprocessing.Acquisition.Parameter':
+                self.current_multi_preprocessing_item.preprocessing.acquisition.parameters.append(dict(attrs))
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.Drifts.Electronic.Drift':
+                drift = MultiPreprocessingItem.Drifts.Electronic.Drift(**attrs)
+                self.current_multi_preprocessing_item.drifts.electronic.drifts.append(drift)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.PerformanceStudy.TimeEvent':
+                self.current_performance_study_time_event = MultiPreprocessingItem.PerformanceStudy.TimeEvent(name=attrs['name'])
+                self.current_multi_preprocessing_item.performance_study.time_events.append(self.current_performance_study_time_event)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.PerformanceStudy.TimeEvent.File':
+                file_info = dict(attrs)
+                self.current_performance_study_time_event.files.append(file_info)
+                # 每次添加新的文件信息时，更新 DataFrame
+                self.current_performance_study_time_event.df = pd.DataFrame(self.current_performance_study_time_event.files)
+
+                # 更新 time_events_dict
+                self.current_multi_preprocessing_item.performance_study.time_events_dict[self.current_performance_study_time_event.name] = self.current_performance_study_time_event.df
+
+            # ... 添加 TimeEventDistribution 和 FullMarginStudy 的解析逻辑 ...
+
             self.current_data = tag
         except Exception as e:
             self.logger.error(f"Error in startElement for tag {tag}: {str(e)}")
@@ -245,7 +312,7 @@ class GlobalResultLoader(ContentHandler):
         data = loader.get_data()
         print(data["GeneralInformation"].Date)
         """
-        return {
+        data = {
             "GeneralInformation": self.general_information,
             "TimeEventInformation": self.time_events,
             "TimeEventInformation_df": self.time_events_df,
@@ -253,12 +320,13 @@ class GlobalResultLoader(ContentHandler):
             "CalibrationConfigurationInformation": self.calibration_configuration,
             "CalibrationDisplayInformation": self.calibration_display,
             "CalibrationSpecificationInformation": self.calibration_specification,
-            "MultiPreprocessingData": self.multi_preprocessing_data,
+            "MultiPreprocessingData": self.multi_preprocessing_items,
             "Channels": {
                 "ProjectChannels": self.project_channels,
                 "MultireprocessingTab": self.multireprocessing_tab
             }
         }
+        return data
 
     def print_summary(self):
         old_stdout = sys.stdout
@@ -311,4 +379,8 @@ def print_time_event_information(time_events):
 if __name__ == "__main__":
     xml_file_path = r"./tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml"
     result = load_global_result(xml_file_path)
-    print(result.get_data()["TimeEventInformation_df"])
+    multi_preprocessing_items = result.get_data()["MultiPreprocessingData"]
+    names = [item.information.get('Name') for item in multi_preprocessing_items]
+    print(result.get_data()["MultiPreprocessingData"][0])
+    #print(result.get_data()["MultiPreprocessingData"][1].information.get("Name"))
+    #print(names)

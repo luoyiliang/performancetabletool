@@ -236,3 +236,53 @@
 - **用户体验验收**：
   - 界面设计应符合易用性需求，操作流程应简洁、直观。
   - 错误信息应明确，日志记录应完整。
+
+
+1. 动态表头配置:
+   - 使用UI界面中的checkbox来控制表头的显示内容。
+   - 表头分为两个主要层级："Time Event Name" 和具体的事件类型（RTTF, Calibration Performance, Margin）。
+
+2. 表头结构:
+   - 第一层级: "Time Event Name"（固定）
+   - 第二层级: 根据checkbox选择显示RTTF, Calibration Performance, Margin
+
+3. 具体控制逻辑:
+   - RTTF部分:
+     * checkBox_Rmin 控制 "Min" 列的显示
+     * checkBox_Rnom 控制 "Nom" 列的显示
+     * checkBox_Rmax 控制 "Max" 列的显示
+   - Calibration Performance部分:
+     * checkBox_prfmin 控制 "Min" 列的显示
+     * checkBox_prfnom 控制 "Nom" 列的显示
+     * checkBox_prfmax 控制 "Max" 列的显示
+     * checkBox_prfnrate 控制 "NF%" 列的显示
+   - Margin部分:
+     * comboBox_prf 用于选择显示的具体列（可能是 "Gain" 或其他选项）
+
+4. 特殊控制:
+   - checkBox_mrggain: 控制 Margin 下的 "Gain" 列显示
+
+5. 数据结构设计:
+   - 设计一个数据结构来存储当前的表头配置
+   - 这个结构应该能够反映checkbox的状态和相应的表头显示情况
+
+6. 更新机制:
+   - 实现一个更新函数，当checkbox状态改变时调用
+   - 这个函数应该更新数据结构并准备新的表头配置
+
+7. 与Dialog集成:
+   - 设计一种方法，将配置好的表头传递给用于显示数据的dialog
+   - 确保dialog能够根据这个配置正确显示表头和相应的数据列
+
+8. 用户界面响应:
+   - 确保UI能够实时反映用户的选择
+   - 可能需要一个"应用"或"确认"按钮来最终确认配置
+
+9. 灵活性考虑:
+   - 设计应当考虑未来可能的扩展，比如添加新的事件类型或列
+
+10. 验证逻辑:
+    - 添加检查以确保至少选择了一个列进行显示
+    - 可能需要处理某些列组合的互斥或依赖关系
+
+这个需求梳理提供了一个框架，用于实现通过UI中的checkbox动态配置表头，并将这个配置用于后续的数据显示。实现时，您需要考虑如何在代码中组织这些功能，以及如何有效地管理状态和更新UI。

@@ -1,0 +1,217 @@
+2024-10-06 10:06:09,714 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:06:18,800 - performancetabletool - ERROR - 许可证验证失败
+2024-10-06 10:06:25,434 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:06:38,105 - performancetabletool - ERROR - 许可证验证失败
+2024-10-06 10:06:43,293 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:06:49,371 - performancetabletool - ERROR - 许可证验证失败
+2024-10-06 10:09:30,524 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:09:30,591 - performancetabletool - ERROR - 许可证验证失败
+2024-10-06 10:10:23,720 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:10:23,790 - performancetabletool - ERROR - 许可证验证失败
+2024-10-06 10:18:32,846 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:18:41,740 - performancetabletool - INFO - 用户 desktop-l4917ec\a 许可证验证成功
+2024-10-06 10:20:10,087 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:20:10,089 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:20:10,159 - performancetabletool - ERROR - 用户 A 许可证验证失败
+2024-10-06 10:20:37,877 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:20:37,879 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:20:37,946 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:21:27,852 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:21:27,853 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:21:27,922 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:21:39,374 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:21:39,375 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:21:39,440 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:21:42,781 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 10:21:44,877 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 10:21:46,276 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 10:22:21,376 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:22:21,377 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:22:21,445 - performancetabletool - ERROR - 用户 A 许可证验证失败
+2024-10-06 10:36:00,751 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:36:00,752 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:36:00,821 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:36:03,847 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 10:36:06,603 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_MS_20230828_Global Result.xml 加载成功
+2024-10-06 10:36:11,012 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 10:36:19,062 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 10:37:00,516 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:37:00,517 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:37:00,586 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:37:01,642 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 10:37:03,342 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 10:37:04,130 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 10:43:42,899 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:43:42,901 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:43:42,968 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:43:46,824 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 10:43:46,825 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 10:43:46,895 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 10:43:49,414 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 10:43:51,387 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 10:43:53,210 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 12:48:10,545 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 12:48:10,546 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 12:48:10,614 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 12:48:41,667 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 12:48:43,779 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 12:48:45,457 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 14:19:43,069 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 14:19:43,072 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 14:19:43,139 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 14:19:45,234 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 14:19:49,989 - performancetabletool - ERROR - XML文件  加载失败
+2024-10-06 14:21:11,195 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 14:21:11,196 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 14:21:11,261 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 14:21:12,732 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 14:21:16,441 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_S03_CAL&VAL_Allcrash&Field event_TTF&Margin_Main_28-Feb-2024_Global Result.xml 加载成功
+2024-10-06 14:21:17,469 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 15:55:47,119 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 15:55:47,120 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 15:55:47,189 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 15:55:48,269 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 15:55:50,631 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 15:55:51,119 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:07:09,839 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:07:09,842 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:07:09,909 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:07:11,454 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:07:15,365 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:07:16,527 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:08:59,323 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:08:59,326 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:08:59,393 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:09:00,674 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:09:02,769 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:09:03,274 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:10:14,744 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:10:14,745 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:10:14,812 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:10:16,177 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:10:18,385 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 19:10:19,029 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:10:47,675 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:11:31,228 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:11:31,229 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:11:31,294 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:11:32,429 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:11:36,544 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:11:36,918 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:11:41,098 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:11:43,397 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_S03_CAL&VAL_Allcrash&Field event_TTF&Margin_P Faulted_28-Feb-2024_Global Result.xml 加载成功
+2024-10-06 19:11:43,495 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:17:47,369 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:17:47,370 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:17:47,439 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:17:48,778 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:17:51,517 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:17:51,927 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:20:39,531 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:20:39,533 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:20:39,886 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:20:41,067 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:20:43,620 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:20:44,145 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:29:11,894 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:29:11,895 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:29:11,973 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:29:13,156 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:29:15,582 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 19:29:15,993 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:31:13,859 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:31:13,860 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:31:13,928 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:31:15,432 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:31:18,817 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 19:31:19,545 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:45:43,238 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:45:43,239 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:45:43,310 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:45:44,547 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:45:47,867 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:45:48,275 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:47:01,933 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:47:01,937 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:47:02,005 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:47:02,846 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:47:05,812 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 19:47:06,242 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 19:47:53,470 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 19:47:53,474 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 19:47:53,543 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 19:47:54,690 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 19:48:02,310 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 19:48:03,341 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:01:52,019 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:01:52,020 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:01:52,092 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:01:53,102 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:01:55,205 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 20:01:55,694 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:02:30,726 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:02:30,727 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:02:30,792 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:02:32,043 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:02:35,070 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 20:02:35,953 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:06:55,943 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:06:55,944 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:06:56,015 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:06:57,214 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:06:59,424 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 20:06:59,741 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:08:55,535 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:08:55,536 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:08:55,604 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:08:56,707 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:08:58,952 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 20:08:59,305 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:13:28,747 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:13:28,748 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:13:28,815 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:13:30,585 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:13:34,694 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_MS_20230828_Global Result.xml 加载成功
+2024-10-06 20:13:35,138 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:15:38,114 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:15:38,116 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:15:38,189 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:15:39,048 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:15:42,678 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_S03_CAL&VAL_Allcrash&Field event_TTF&Margin_Main_28-Feb-2024_Global Result.xml 加载成功
+2024-10-06 20:15:43,075 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:17:34,990 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:17:34,992 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:17:35,062 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:17:36,005 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:17:37,959 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 20:17:38,316 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:20:19,953 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:20:19,954 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:20:20,031 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:20:21,053 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:20:23,443 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-06 20:20:23,772 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:22:12,533 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:22:12,536 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:22:12,601 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:22:15,537 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:22:18,676 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 20:22:19,152 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:26:19,067 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:26:19,068 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:26:19,135 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:26:20,152 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:26:22,748 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 20:26:22,960 - performancetabletool - INFO - 打开性能表对话框
+2024-10-06 20:27:39,513 - performancetabletool - INFO - 应用程序已启动
+2024-10-06 20:27:39,514 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-06 20:27:39,579 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-06 20:27:40,572 - performancetabletool - INFO - 开始加载XML文件
+2024-10-06 20:27:42,692 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-06 20:27:43,098 - performancetabletool - INFO - 打开性能表对话框
+2024-10-07 05:43:14,870 - performancetabletool - INFO - 应用程序已启动
+2024-10-07 05:43:14,871 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-07 05:43:14,936 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-07 05:43:16,254 - performancetabletool - INFO - 开始加载XML文件
+2024-10-07 05:43:18,536 - performancetabletool - INFO - XML文件 Z:/LocalRepo/performancetabletool/tests/EH3_23MY_F01_Crash_TTF&Gain_Main_MS_20230828_Global Result.xml 加载成功
+2024-10-07 05:43:18,953 - performancetabletool - INFO - 打开性能表对话框
