@@ -1,3 +1,7 @@
+# coding: utf-8
+# Author: Roy.Luo
+# Version: 1.0
+
 import base64
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
@@ -7,6 +11,7 @@ import datetime
 import json
 import logging
 from uuid import getnode as get_mac
+import platform
 
 class LicenseValidator:
     def __init__(self, license_file='license.key', log_file='validation.log'):
@@ -28,7 +33,7 @@ class LicenseValidator:
         salt = os.urandom(16)
         key = self.generate_key(salt)
         f = Fernet(key)
-        license_data = json.dumps(licenses).encode()
+        license_data = json.dumps(licenses, ensure_ascii=False).encode('utf-8')
         encrypted_data = f.encrypt(license_data)
         with open(self.license_file, 'wb') as file:
             file.write(salt + encrypted_data)
@@ -43,7 +48,7 @@ class LicenseValidator:
             key = self.generate_key(salt)
             f = Fernet(key)
             decrypted_data = f.decrypt(encrypted_data)
-            return json.loads(decrypted_data.decode())
+            return json.loads(decrypted_data.decode('utf-8'))
         except FileNotFoundError:
             self.logger.error("许可证文件不存在")
             raise
@@ -58,12 +63,17 @@ class LicenseValidator:
         try:
             licenses = self.decrypt_license()
             now = datetime.datetime.now()
+            current_device = platform.node()  # 获取当前设备名称
             for license in licenses:
                 if license['username'] == username:
                     expiry_date = datetime.datetime.fromisoformat(license['expiry_date'])
                     if expiry_date > now:
-                        self.logger.info(f"许可证验证成功。用户: {username}, 有效期至: {expiry_date}")
-                        return True
+                        if current_device in license['devices']:
+                            self.logger.info(f"许可证验证成功。用户: {username}, 设备: {current_device}, 有效期至: {expiry_date}")
+                            return True
+                        else:
+                            self.logger.warning(f"设备未授权。用户: {username}, 当前设备: {current_device}")
+                            return False
                     else:
                         self.logger.warning(f"许可证已过期。用户: {username}, 过期日期: {expiry_date}")
                         return False
@@ -75,5 +85,6 @@ class LicenseValidator:
 
 def setup_license_validator(log_file='validation.log'):
     logging.basicConfig(filename=log_file, level=logging.INFO,
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        encoding='utf-8')
     return LicenseValidator(log_file=log_file)

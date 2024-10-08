@@ -1,3 +1,7 @@
+# coding: utf-8
+# Author: Roy.Luo
+# Version: 1.0
+
 import sys
 import os
 import getpass

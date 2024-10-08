@@ -1,10 +1,11 @@
 # coding: utf-8
 # Author: Roy Luo
+# Version: 1.0
+
 
 import logging
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional
-# 使用python.sax解析xml文件
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from tabulate import tabulate
@@ -345,7 +346,9 @@ def load_global_result(xml_file_path):
     parser.setContentHandler(handler)
 
     try:
-        parser.parse(xml_file_path)
+        # 使用 utf-8 编码打开 XML 文件
+        with open(xml_file_path, 'r', encoding='utf-8') as xml_file:
+            parser.parse(xml_file)
         return handler
 
     except Exception as e:
@@ -364,7 +367,6 @@ def print_general_information(general_info):
     
     print("\n一般信息:")
     print(tabulate(data, headers=["Key", "Value"], tablefmt="grid"))
-
 
 def print_time_event_information(time_events):
     data = [

@@ -1,3 +1,9 @@
+
+
+# coding: utf-8
+# Author: Roy.Luo
+# Version: 1.0
+
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QColor, QBrush, QFont, QFontMetrics
