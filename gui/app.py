@@ -48,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def validate_license(self):
         try:
             username = getpass.getuser()  # 获取当前系统用户名
+            print(username)
         except Exception:
             username = os.getlogin()  # 如果 getpass.getuser() 失败，尝试使用 os.getlogin()
         

@@ -12,6 +12,8 @@ import json
 import logging
 from uuid import getnode as get_mac
 import platform
+import sys
+import getpass
 
 class LicenseValidator:
     def __init__(self, license_file='license.key', log_file='validation.log'):
@@ -48,6 +50,7 @@ class LicenseValidator:
             key = self.generate_key(salt)
             f = Fernet(key)
             decrypted_data = f.decrypt(encrypted_data)
+            print(decrypted_data)
             return json.loads(decrypted_data.decode('utf-8'))
         except FileNotFoundError:
             self.logger.error("许可证文件不存在")
@@ -63,7 +66,7 @@ class LicenseValidator:
         try:
             licenses = self.decrypt_license()
             now = datetime.datetime.now()
-            current_device = platform.node()  # 获取当前设备名称
+            current_device = self.get_device_identifier()  # 使用新方法获取设备标识符
             for license in licenses:
                 if license['username'] == username:
                     expiry_date = datetime.datetime.fromisoformat(license['expiry_date'])
@@ -82,6 +85,12 @@ class LicenseValidator:
         except Exception as e:
             self.logger.error(f"许可证验证失败: {str(e)}")
             return False
+
+    def get_device_identifier(self):
+        """
+        获取设备标识符，兼容Windows和Mac
+        """
+        return platform.node()  # 对所有系统都使用设备名称
 
 def setup_license_validator(log_file='validation.log'):
     logging.basicConfig(filename=log_file, level=logging.INFO,
