@@ -1,1 +1,0 @@
-from .globalResultLoader import load_global_result
