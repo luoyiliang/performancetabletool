@@ -13,7 +13,7 @@ import pandas as pd
 class DataFrameDialog(QDialog):
     def __init__(self, df, time_event_name, header_config, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("DataFrame Preview")
+        self.setWindowTitle("Preview time events")
         self.setGeometry(100, 100, 1000, 600)
 
         layout = QVBoxLayout()

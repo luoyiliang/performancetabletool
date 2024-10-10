@@ -265,7 +265,21 @@ class GlobalResultLoader(ContentHandler):
                 # 更新 time_events_dict
                 self.current_multi_preprocessing_item.performance_study.time_events_dict[self.current_performance_study_time_event.name] = self.current_performance_study_time_event.df
 
-            # ... 添加 TimeEventDistribution 和 FullMarginStudy 的解析逻辑 ...
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.FullMarginStudy.TimeEvent':
+                self.current_full_margin_time_event = MultiPreprocessingItem.FullMarginStudy.TimeEvent(name=attrs['name'])
+                self.current_multi_preprocessing_item.full_margin_study.time_events.append(self.current_full_margin_time_event)
+            
+            elif current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.FullMarginStudy.TimeEvent.File':
+                self.current_full_margin_file = MultiPreprocessingItem.FullMarginStudy.TimeEvent.File(name=attrs['name'])
+                self.current_full_margin_time_event.files.append(self.current_full_margin_file)
+            
+            elif current_path.endswith('.nominal.lower_limit') or current_path.endswith('.nominal.upper_limit'):
+                limit_type = self.path[-1]
+                self.current_full_margin_file.nominal[limit_type] = dict(attrs)
+            
+            elif current_path.endswith('.Drift_1.lower_limit') or current_path.endswith('.Drift_1.upper_limit'):
+                limit_type = self.path[-1]
+                self.current_full_margin_file.drift_1[limit_type] = dict(attrs)
 
             self.current_data = tag
         except Exception as e:
@@ -273,6 +287,9 @@ class GlobalResultLoader(ContentHandler):
 
     def endElement(self, tag):
         try:
+            current_path = '.'.join(self.path)
+            if current_path == 'Margin_Test_Report.MultiPreprocessingData.MultiPreprocessingItem.FullMarginStudy':
+                self.create_full_margin_study_dataframe()
             self.path.pop()
             self.current_data = ""
         except Exception as e:
@@ -340,6 +357,54 @@ class GlobalResultLoader(ContentHandler):
         sys.stdout = old_stdout
         return result.getvalue()
 
+    def create_full_margin_study_dataframe(self):
+        try:
+            data = []
+            for time_event in self.current_multi_preprocessing_item.full_margin_study.time_events:
+                for file in time_event.files:
+                    row = {
+                        'File_name': file.name,
+                        'TimeEvent_name': time_event.name,
+                        'lower_limit_behaviour_change': file.drift_1['lower_limit'].get('behaviour_change'),
+                        'lower_limit_behaviour_change_value': file.drift_1['lower_limit'].get('behaviour_change_value'),
+                        'lower_limit_Drift_1': file.drift_1['lower_limit'].get('Drift_1'),
+                        'lower_limit_behaviour_percentage': file.drift_1['lower_limit'].get('behaviour_percentage'),
+                        'upper_limit_behaviour_change': file.drift_1['upper_limit'].get('behaviour_change'),
+                        'upper_limit_behaviour_change_value': file.drift_1['upper_limit'].get('behaviour_change_value'),
+                        'upper_limit_Drift_1': file.drift_1['upper_limit'].get('Drift_1'),
+                        'upper_limit_behaviour_percentage': file.drift_1['upper_limit'].get('behaviour_percentage')
+                    }
+                    data.append(row)
+            
+            if not data:
+                print("No FullMarginStudy data found.")
+                return
+
+            # 创建 DataFrame
+            df = pd.DataFrame(data)
+            
+            # 设置 File_name 为索引
+            df.set_index('File_name', inplace=True)
+            
+            # 创建多层索引列
+            df.columns = pd.MultiIndex.from_tuples([
+                ('', 'TimeEvent_name'),
+                ('lower_limit', 'behaviour_change'),
+                ('lower_limit', 'behaviour_change_value'),
+                ('lower_limit', 'Drift_1'),
+                ('lower_limit', 'behaviour_percentage'),
+                ('upper_limit', 'behaviour_change'),
+                ('upper_limit', 'behaviour_change_value'),
+                ('upper_limit', 'Drift_1'),
+                ('upper_limit', 'behaviour_percentage')
+            ])
+            
+            print("FullMarginStudy DataFrame created:")
+
+            self.current_multi_preprocessing_item.full_margin_study_drift_1_df = df
+        except Exception as e:
+            self.logger.error(f"Error in create_full_margin_study_dataframe: {str(e)}")
+
 def load_global_result(xml_file_path):
     handler = GlobalResultLoader()
     parser = make_parser()
@@ -379,10 +444,15 @@ def print_time_event_information(time_events):
 
 
 if __name__ == "__main__":
-    xml_file_path = r"./tests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml"
+    xml_file_path = "/Users/luoyiliang/projects/performanceTabletests/EH3_23MY_S03_CAL&VAL_Allcrash&Field event_TTF&Margin_Main_28-Feb-2024_Global Result.xml"
     result = load_global_result(xml_file_path)
-    multi_preprocessing_items = result.get_data()["MultiPreprocessingData"]
-    names = [item.information.get('Name') for item in multi_preprocessing_items]
-    print(result.get_data()["MultiPreprocessingData"][0])
-    #print(result.get_data()["MultiPreprocessingData"][1].information.get("Name"))
-    #print(names)
+    
+    if result:
+        multi_preprocessing_items = result.get_data()["MultiPreprocessingData"]
+        for item in multi_preprocessing_items:
+            print(f"Processing item: {item.information.get('Name')}")
+            print(item.full_margin_study_drift_1_df)
+            item.full_margin_study_drift_1_df.to_csv(f"{item.information.get('Name')}_full_margin_study_drift_1_df.csv")
+
+    else:
+        print("无法加载 XML 文件。请检查文件路径是否正确。")

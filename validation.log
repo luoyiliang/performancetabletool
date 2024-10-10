@@ -52,3 +52,34 @@
 2024-10-09 20:32:23,851 - performancetabletool - INFO - 开始加载XML文件
 2024-10-09 20:32:28,237 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
 2024-10-09 20:32:28,635 - performancetabletool - INFO - 打开性能表对话框
+2024-10-10 10:50:50,604 - performancetabletool - INFO - 应用程序已启动
+2024-10-10 10:50:50,604 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
+2024-10-10 10:50:50,666 - license_validator - INFO - 许可证验证成功。用户: luoyiliang, 设备: LuoYilLiangMAC.local, 有效期至: 2099-10-10 00:00:00
+2024-10-10 10:50:50,666 - performancetabletool - INFO - 用户 luoyiliang 许可证验证成功
+2024-10-10 10:50:55,542 - performancetabletool - INFO - 开始加载XML文件
+2024-10-10 10:51:03,325 - performancetabletool - ERROR - XML文件  加载失败
+2024-10-10 10:52:28,172 - performancetabletool - INFO - 应用程序已启动
+2024-10-10 10:52:28,173 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
+2024-10-10 10:52:28,220 - license_validator - INFO - 许可证验证成功。用户: luoyiliang, 设备: LuoYilLiangMAC.local, 有效期至: 2099-10-10 00:00:00
+2024-10-10 10:52:28,220 - performancetabletool - INFO - 用户 luoyiliang 许可证验证成功
+2024-10-10 10:52:30,061 - performancetabletool - INFO - 开始加载XML文件
+2024-10-10 10:52:35,173 - performancetabletool - ERROR - XML文件  加载失败
+2024-10-10 10:59:02,357 - performancetabletool - INFO - 应用程序已启动
+2024-10-10 10:59:02,358 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
+2024-10-10 10:59:02,407 - license_validator - INFO - 许可证验证成功。用户: luoyiliang, 设备: LuoYilLiangMAC.local, 有效期至: 2099-10-10 00:00:00
+2024-10-10 10:59:02,407 - performancetabletool - INFO - 用户 luoyiliang 许可证验证成功
+2024-10-10 10:59:03,625 - performancetabletool - INFO - 开始加载XML文件
+2024-10-10 10:59:25,667 - performancetabletool - INFO - XML文件 /Users/luoyiliang/projects/performanceTabletests/EH3_23MY_S03_CAL&VAL_Allcrash&Field event_TTF&Margin_Main_28-Feb-2024_Global Result.xml 加载成功
+2024-10-10 10:59:26,508 - performancetabletool - INFO - 打开性能表对话框
+2024-10-10 11:02:43,329 - performancetabletool - INFO - 应用程序已启动
+2024-10-10 11:02:43,330 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
+2024-10-10 11:02:43,378 - license_validator - INFO - 许可证验证成功。用户: luoyiliang, 设备: LuoYilLiangMAC.local, 有效期至: 2099-10-10 00:00:00
+2024-10-10 11:02:43,378 - performancetabletool - INFO - 用户 luoyiliang 许可证验证成功
+2024-10-10 11:02:44,702 - performancetabletool - INFO - 开始加载XML文件
+2024-10-10 11:02:51,059 - performancetabletool - ERROR - XML文件  加载失败
+2024-10-10 11:03:32,817 - performancetabletool - INFO - 应用程序已启动
+2024-10-10 11:03:32,818 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
+2024-10-10 11:03:32,862 - license_validator - INFO - 许可证验证成功。用户: luoyiliang, 设备: LuoYilLiangMAC.local, 有效期至: 2099-10-10 00:00:00
+2024-10-10 11:03:32,863 - performancetabletool - INFO - 用户 luoyiliang 许可证验证成功
+2024-10-10 11:03:33,935 - performancetabletool - INFO - 开始加载XML文件
+2024-10-10 11:03:38,036 - performancetabletool - ERROR - XML文件  加载失败
