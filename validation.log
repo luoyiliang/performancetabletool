@@ -17,3 +17,38 @@
 2024-10-09 12:57:21,714 - performancetabletool - INFO - 正在验证用户 luoyiliang 的许可证
 2024-10-09 12:57:21,777 - license_validator - WARNING - 未找到用户 luoyiliang 的许可证
 2024-10-09 12:57:21,777 - performancetabletool - ERROR - 用户 luoyiliang 许可证验证失败
+2024-10-09 20:06:41,499 - performancetabletool - INFO - 应用程序已启动
+2024-10-09 20:06:41,500 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-09 20:06:41,574 - license_validator - INFO - 许可证验证成功。用户: A, 设备: DESKTOP-L4917EC, 有效期至: 2099-10-10 00:00:00
+2024-10-09 20:06:41,574 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-09 20:06:43,501 - performancetabletool - INFO - 开始加载XML文件
+2024-10-09 20:06:49,745 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-09 20:06:50,442 - performancetabletool - INFO - 打开性能表对话框
+2024-10-09 20:09:58,523 - performancetabletool - INFO - 应用程序已启动
+2024-10-09 20:09:58,524 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-09 20:09:58,606 - license_validator - INFO - 许可证验证成功。用户: A, 设备: DESKTOP-L4917EC, 有效期至: 2099-10-10 00:00:00
+2024-10-09 20:09:58,606 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-09 20:09:59,806 - performancetabletool - INFO - 开始加载XML文件
+2024-10-09 20:10:07,384 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-09 20:10:07,841 - performancetabletool - INFO - 打开性能表对话框
+2024-10-09 20:11:50,684 - performancetabletool - INFO - 应用程序已启动
+2024-10-09 20:11:50,685 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-09 20:11:50,761 - license_validator - INFO - 许可证验证成功。用户: A, 设备: DESKTOP-L4917EC, 有效期至: 2099-10-10 00:00:00
+2024-10-09 20:11:50,762 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-09 20:11:52,056 - performancetabletool - INFO - 开始加载XML文件
+2024-10-09 20:15:45,212 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-09 20:15:46,376 - performancetabletool - INFO - 打开性能表对话框
+2024-10-09 20:19:14,281 - performancetabletool - INFO - 应用程序已启动
+2024-10-09 20:19:14,282 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-09 20:19:14,362 - license_validator - INFO - 许可证验证成功。用户: A, 设备: DESKTOP-L4917EC, 有效期至: 2099-10-10 00:00:00
+2024-10-09 20:19:14,363 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-09 20:19:16,900 - performancetabletool - INFO - 开始加载XML文件
+2024-10-09 20:19:22,041 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_LS&HS_20230828_Global Result.xml 加载成功
+2024-10-09 20:19:22,430 - performancetabletool - INFO - 打开性能表对话框
+2024-10-09 20:32:22,527 - performancetabletool - INFO - 应用程序已启动
+2024-10-09 20:32:22,528 - performancetabletool - INFO - 正在验证用户 A 的许可证
+2024-10-09 20:32:22,606 - license_validator - INFO - 许可证验证成功。用户: A, 设备: DESKTOP-L4917EC, 有效期至: 2099-10-10 00:00:00
+2024-10-09 20:32:22,607 - performancetabletool - INFO - 用户 A 许可证验证成功
+2024-10-09 20:32:23,851 - performancetabletool - INFO - 开始加载XML文件
+2024-10-09 20:32:28,237 - performancetabletool - INFO - XML文件 Z:/performanceTabletests/EH3_23MY_F01_Crash_TTF&Gain_Backup_MS_20230828_Global Result.xml 加载成功
+2024-10-09 20:32:28,635 - performancetabletool - INFO - 打开性能表对话框
